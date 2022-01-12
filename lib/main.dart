@@ -1,16 +1,10 @@
-import 'package:chair_app/providers/homeScreenDataProvider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import 'Screens/Home_Screen.dart';
-import 'Screens/Timer_Screen.dart';
 
 void main() {
-  runApp(ChangeNotifierProvider<HomeDataProvider>(
-      create: (BuildContext context) => HomeDataProvider(),
-      lazy: false,
-      child: MyApp()));
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,8 +12,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(routes: {
-      TimerScreen.routeName: (ctx) => TimerScreen(),
-    }, home: Home());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Home(),
+    );
   }
 }
